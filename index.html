@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свадебное приглашение</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf9;
+      font-family: 'Times New Roman', serif;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fffaf9;
+    }
+
+    .intro h1 {
+      font-family: 'Rouge Script', cursive;
+      font-size: 3.5em;
+      color: #222;
+      margin: 0;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: fadeInScale 2s ease forwards;
+    }
+
+    .intro h1:nth-child(2) {
+      animation-delay: 1.2s;
+    }
+
+    .intro p {
+      margin-top: 30px;
+      font-size: 1.4em;
+      color: #555;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 2.5s;
+    }
+
+    .invitation-text {
+      font-size: 1.8em;
+      text-transform: uppercase;
+      color: #000;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 15px;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .timeline {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .timeline-item {
+      margin: 10px 0;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .timeline-item:nth-child(1) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.9s; }
+
+    .survey form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .survey input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 5px;
+    }
+
+    .submit-btn {
+      background-color: #000;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.1em;
+    }
+
+    @keyframes fadeInScale {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="intro">
+    <h1>Натали</h1>
+    <h1>Андрей</h1>
+    <p>29 августа 2025</p>
+  </section>
+
+  <section>
+    <div class="invitation-text">Вы приглашены на свадьбу</div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Место проведения</h2>
+    <p>«Петергоф лофт»<br>Троицкая гора, д. 33</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">План дня</h2>
+    <div class="timeline">
+      <div class="timeline-item"><strong>13:30</strong> — Сбор гостей</div>
+      <div class="timeline-item"><strong>14:00</strong> — Регистрация</div>
+      <div class="timeline-item"><strong>15:00</strong> — Банкет</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Дресс-код</h2>
+    <p>Пожалуйста, поддержите цветовую гамму свадьбы в своих нарядах.</p>
+  </section>
+
+  <section class="survey">
+    <h2 class="section-title">Анкета</h2>
+    <p>Пожалуйста, подтвердите своё присутствие</p>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <label>Ваше Имя и Фамилия:
+        <input type="text" name="fullname" required />
+      </label>
+
+      <p>Вы сможете присутствовать?</p>
+      <div class="radio-group">
+        <label><input type="radio" name="attend" value="Да" required /> Да, обязательно приду</label>
+        <label><input type="radio" name="attend" value="Нет" /> Нет, не смогу</label>
+      </div>
+
+      <label>Если с парой, укажите имя:
+        <input type="text" name="partner" />
+      </label>
+
+      <button class="submit-btn" type="submit">Отправить</button>
+    </form>
+  </section>
+
+</body>
+</html>
